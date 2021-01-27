@@ -8,10 +8,6 @@
     "test": "mocha --require babel-core/register || true",
     "build": "node bundler.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andybelldesign/terii.git"
-  },
   "keywords": [
     "state management",
     "state machine",
@@ -20,16 +16,8 @@
     "reactive",
     "minimal"
   ],
-  "author": {
-    "name": "Andy Bell",
-    "email": "andy@hankchizljaw.io",
-    "url": "https://hankchizljaw.io"
-  },
+  "author": "Mirco Sanguineti (https://github.com/msanguineti)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/andybelldesign/terii/issues"
-  },
-  "homepage": "https://github.com/andybelldesign/terii#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -39,5 +27,17 @@
     "rollup-plugin-uglify-es": "0.0.1",
     "vuepress": "^0.13.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msanguineti/terii.git"
+  },
+  "bugs": {
+    "url": "https://github.com/msanguineti/terii/issues"
+  },
+  "homepage": "https://github.com/msanguineti/terii#readme"
 }
