@@ -1,5 +1,5 @@
 # Store Class
-The core Beedle `Store` class is the main organ grinder. When you `import` Beedle, this is the default export that you'll get.
+The core Terii `Store` class is the main organ grinder. When you `import` Terii, this is the default export that you'll get.
 
 ## Constructor
 
@@ -37,7 +37,7 @@ const mutations = {
 
 #### `initialState`
 
-This is the default state of your application. If set, this will override the default state that Beedle sets, which is an empty `object`.
+This is the default state of your application. If set, this will override the default state that Terii sets, which is an empty `object`.
 
 ##### Example
 

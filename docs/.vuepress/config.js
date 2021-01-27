@@ -1,9 +1,9 @@
 module.exports = {
     head: [
-        ['link', { rel: 'icon', href: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/174183/beedle-favicon.png' }]
+        ['link', { rel: 'icon', href: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/174183/terii-favicon.png' }]
     ],
     themeConfig: {
-        title: 'Beedle',
+        title: 'Terii',
         nav: [
             {
                 text: 'Home',
@@ -11,11 +11,11 @@ module.exports = {
             },
             {
                 text: 'GitHub',
-                link: 'https://github.com/hankchizljaw/beedle'
+                link: 'https://github.com/hankchizljaw/terii'
             },
             {
                 text: 'npm',
-                link: 'https://www.npmjs.com/package/beedle'
+                link: 'https://www.npmjs.com/package/terii'
             }
         ],
         sidebar: [

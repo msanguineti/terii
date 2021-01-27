@@ -1,2 +1,2 @@
-const name = 'beedle'
+const name = 'terii'
   export { name }

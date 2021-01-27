@@ -1,6 +1,6 @@
 # State
 
-Beedle's state tree is a single object that can contain whatever data you want. It's _guarded_ by a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which keeps an eye on things for you and tells Beedle if something has been modified. 
+Terii's state tree is a single object that can contain whatever data you want. It's _guarded_ by a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which keeps an eye on things for you and tells Terii if something has been modified. 
 
 ## Example object 
 
@@ -20,7 +20,7 @@ const initialState = {
 
 ## Getting an item 
 
-Presuming you've instantiated Beedle like the [getting started](/#getting-started) example, you can access state in a couple of ways.
+Presuming you've instantiated Terii like the [getting started](/#getting-started) example, you can access state in a couple of ways.
 
 
 

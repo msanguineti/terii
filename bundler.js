@@ -6,7 +6,7 @@ const uglify = require('rollup-plugin-uglify-es');
 */
 async function bundleJavaScript() {
     const bundle = await rollup.rollup({
-        input: `${__dirname}/src/beedle.js`,
+        input: `${__dirname}/src/terii.js`,
         plugins: [
             uglify()
         ]
@@ -14,15 +14,15 @@ async function bundleJavaScript() {
 
     await bundle.write({
         format: 'umd',
-        name: 'beedle',
-        file: 'beedle.umd.js',
+        name: 'terii',
+        file: 'terii.umd.js',
         dir: `${__dirname}/dist/`,
     });
 
     await bundle.write({
         format: 'esm',
-        name: 'beedle',
-        file: 'beedle.js',
+        name: 'terii',
+        file: 'terii.js',
         dir: `${__dirname}/dist/`,
     });
 };
