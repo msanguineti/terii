@@ -1,16 +1,16 @@
 {
-  "name": "beedle",
+  "name": "terii",
   "version": "0.8.1",
-  "description": "Beedle is a tiny little library to help you manage state across your application. Inspired by great libraries like Vuex and Redux, Beedle creates a central store that enables you to both better control and cascade state across your application.",
-  "main": "dist/beedle.umd.js",
-  "module": "dist/beedle.js",
+  "description": "Terii is a tiny little library to help you manage state across your application. Inspired by great libraries like Vuex and Redux, Terii creates a central store that enables you to both better control and cascade state across your application.",
+  "main": "dist/terii.umd.js",
+  "module": "dist/terii.js",
   "scripts": {
     "test": "mocha --require babel-core/register || true",
     "build": "node bundler.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andybelldesign/beedle.git"
+    "url": "git+https://github.com/andybelldesign/terii.git"
   },
   "keywords": [
     "state management",
@@ -27,9 +27,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andybelldesign/beedle/issues"
+    "url": "https://github.com/andybelldesign/terii/issues"
   },
-  "homepage": "https://github.com/andybelldesign/beedle#readme",
+  "homepage": "https://github.com/andybelldesign/terii#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",

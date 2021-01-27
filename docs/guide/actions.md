@@ -21,7 +21,7 @@ const actions = {
 
 The `updateTitle` method has two parameters:
 
-- `context` is an instance of Beedle
+- `context` is an instance of Terii
 - `payload` is whatever is passed as the second parameter when you [dispatch](#dispatch) an action
 
 Inside that method, you'll see that we are calling `context.commit`. This is us running a [mutation](/guide/mutations.html) and we're passing only the text that we want `state.title` to be.
@@ -30,7 +30,7 @@ Inside that method, you'll see that we are calling `context.commit`. This is us 
 
 ## Dispatch
 
-The `dispatch` method is part of the Beedle object and runs actions for you. You can `dispatch` wherever there's a reference to your store. Let's use the `storeInstance` object from the [previous step](/guide/state.html).
+The `dispatch` method is part of the Terii object and runs actions for you. You can `dispatch` wherever there's a reference to your store. Let's use the `storeInstance` object from the [previous step](/guide/state.html).
 
 ```javascript
 // An initialised store. Params redacted for brevity

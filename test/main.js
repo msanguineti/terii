@@ -1,1 +1,1 @@
-import './src/beedle.js';
+import './src/terii.js';

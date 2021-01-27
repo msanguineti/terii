@@ -1,4 +1,4 @@
-import Store from './beedle.js';
+import Store from './terii.js';
 
 // Set actions, mutations and initial state
 const actions = {

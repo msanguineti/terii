@@ -28,4 +28,4 @@ Mutations like this should be as simple as possible and *only* mutate the state.
 
 ## Commit 
 
-The `commit` method is part of the Beedle object and runs mutations for you. See the [actions guide](/guide/actions.html#example) for an example of this in action.
+The `commit` method is part of the Terii object and runs mutations for you. See the [actions guide](/guide/actions.html#example) for an example of this in action.

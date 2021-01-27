@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Store from '../../src/beedle.js';
+import Store from '../../src/terii.js';
 
 // Create shared state objects. One that is initial, and one that is an updated version of the initial state
 const initialState = {
@@ -32,7 +32,7 @@ const storeInstance = new Store({
     }
 });
 
-describe('src/beedle.js', () => {
+describe('src/terii.js', () => {
     
     it('Dispatch returns true if action was found', () => {
 

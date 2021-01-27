@@ -1,58 +1,58 @@
-# Beedle
+# Terii
 
-![The current build status based on whether tests are passing](https://api.travis-ci.org/andybelldesign/beedle.svg?branch=master)
-![The Uncompressed size of Beedle](http://img.badgesize.io/https://unpkg.com/beedle?label=Uncompressed%20Size)
-![The GZIP size of Beedle](http://img.badgesize.io/https://unpkg.com/beedle?compression=gzip&label=GZIP%20Size)
-![The Brotli size of Beedle](http://img.badgesize.io/https://unpkg.com/beedle?compression=brotli&label=Brotli%20Size)
+![The current build status based on whether tests are passing](https://api.travis-ci.org/andybelldesign/terii.svg?branch=master)
+![The Uncompressed size of Terii](http://img.badgesize.io/https://unpkg.com/terii?label=Uncompressed%20Size)
+![The GZIP size of Terii](http://img.badgesize.io/https://unpkg.com/terii?compression=gzip&label=GZIP%20Size)
+![The Brotli size of Terii](http://img.badgesize.io/https://unpkg.com/terii?compression=brotli&label=Brotli%20Size)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Beedle is a tiny library to help you manage state across your application. Inspired by great libraries like Vuex and Redux, Beedle creates a central store that enables you predictably control and cascade state across your application.
+Terii is a tiny library to help you manage state across your application. Inspired by great libraries like Vuex and Redux, Terii creates a central store that enables you predictably control and cascade state across your application.
 
 This library was initially created as a prototype for [this article on CSS-Tricks](https://css-tricks.com/build-a-state-management-system-with-vanilla-javascript/), where you learn how to build a state management system from scratch with Vanilla JavaScript.
 
-[**See the documentation**](https://beedle.hankchizljaw.io) — [**See the project structure**](https://beedle-structure.hankchizljaw.io)
+[**See the documentation**](https://terii.hankchizljaw.io) — [**See the project structure**](https://terii-structure.hankchizljaw.io)
 
 ## Demos
-- [**Basic demo**](https://beedle-basic-demo.hankchizljaw.io/) 
-- [**Advanced demo**](https://beedle-advanced-demo.hankchizljaw.io/) 
-- [**Vue JS demo**](https://beedle-vue-demo.hankchizljaw.io/) 
-- [**React JS demo**](https://beedle-react-demo.hankchizljaw.io/) 
+- [**Basic demo**](https://terii-basic-demo.hankchizljaw.io/) 
+- [**Advanced demo**](https://terii-advanced-demo.hankchizljaw.io/) 
+- [**Vue JS demo**](https://terii-vue-demo.hankchizljaw.io/) 
+- [**React JS demo**](https://terii-react-demo.hankchizljaw.io/) 
 
 # How it works
 
-Beedle creates a pattern where a single source of truth, the '*Application State*' cascades state across your app in a predictable fashion. To modify state, a set flow of `actions` and `mutations` help create a traceable data-flow that makes things a little easier to debug. 
+Terii creates a pattern where a single source of truth, the '*Application State*' cascades state across your app in a predictable fashion. To modify state, a set flow of `actions` and `mutations` help create a traceable data-flow that makes things a little easier to debug. 
 
 Using a [Pub/Sub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) which notifies anything that is subscribed to changes, a fully reactive front-end can be achieved with a few kilobytes of vanilla JavaScript.
 
-![A flow diagram that shows an action that calls a mutation, which mutates the state and triggers an update to anything that is listening](https://s3-us-west-2.amazonaws.com/s.cdpn.io/174183/beedle-flow-diagram.png)
+![A flow diagram that shows an action that calls a mutation, which mutates the state and triggers an update to anything that is listening](https://s3-us-west-2.amazonaws.com/s.cdpn.io/174183/terii-flow-diagram.png)
 
 As the diagram above shows, a simple, predictable flow is created by pushing data into an `action` which subsequently calls one or more `mutations`. Only the `mutation` can modify state, which helps with keeping track of changes.
 
-[**Continue reading the documentation**](https://beedle.hankchizljaw.io/guide/state.html)
+[**Continue reading the documentation**](https://terii.hankchizljaw.io/guide/state.html)
 
 ## A mini library for small projects
 
-Beedle is inspired by libraries like Redux, but certainly isn't designed to replace it. Beedle is aimed more at tiny little applications or where a development team might be looking to create the smallest possible footprint with their JavaScript.
+Terii is inspired by libraries like Redux, but certainly isn't designed to replace it. Terii is aimed more at tiny little applications or where a development team might be looking to create the smallest possible footprint with their JavaScript.
 
 ## Performance budget
 
-Beedle is intended to be _tiny_, so the largest that the uncompressed size will ever get to is 5kb. 
+Terii is intended to be _tiny_, so the largest that the uncompressed size will ever get to is 5kb. 
 
 ## Browser support
 
-Beedle is aimed at browsers that support ES6 by default. It also uses a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to monitor state, so [anything that supports Proxy](https://caniuse.com/#feat=proxy) will support Beedle.
+Terii is aimed at browsers that support ES6 by default. It also uses a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to monitor state, so [anything that supports Proxy](https://caniuse.com/#feat=proxy) will support Terii.
 
 You could use the [Proxy polyfill](https://github.com/GoogleChrome/proxy-polyfill) to support more browsers.
 
-Most major browsers will support Beedle with no issues. 
+Most major browsers will support Terii with no issues. 
 
 ## Getting started
 
-You can pull Beedle down via [npm](http://npmjs.com) or take a [zip of this repository](https://github.com/hankchizljaw/beedle/archive/master.zip). The rest of this guide assumes you've used npm.
+You can pull Terii down via [npm](http://npmjs.com) or take a [zip of this repository](https://github.com/hankchizljaw/terii/archive/master.zip). The rest of this guide assumes you've used npm.
 
 ### 1) Install
 
-Run `npm install beedle` in your project directory.
+Run `npm install terii` in your project directory.
 
 
 
@@ -61,7 +61,7 @@ Run `npm install beedle` in your project directory.
 First up, import it into your JavaScript:
 
 ```JavaScript
-import Store from 'beedle';
+import Store from 'terii';
 ```
 
 
@@ -117,7 +117,7 @@ textElement.addEventListener('input', () => {
 
 ### 4) Listen for changes
 
-Beedle uses the Pub/Sub pattern to transmit changes. Let's attach the message to a DOM element:
+Terii uses the Pub/Sub pattern to transmit changes. Let's attach the message to a DOM element:
 
 ```javascript
 // Grab the text element and attach it to the stateChange event
@@ -129,9 +129,15 @@ storeInstance.subscribe(state => {
 });
 ```
 
-Head over to the [basic demo](https://beedle-basic-demo.hankchizljaw.io/) to see this in action 🚀
+Head over to the [basic demo](https://terii-basic-demo.hankchizljaw.io/) to see this in action 🚀
 
 ## Acknowledgements 
+
+Thanks to [Andy Bell](https://github.com/hankchizljaw) for its initial work (named [Beedle](https://github.com/hankchizljaw/terii)). It goes without saying that without that project, `terii` would not exist.
+
+Terii is the japanese name of the character Beedle (see [below](#original-acknowledgements-by-andy-bell))
+
+### Original acknowledgements by Andy Bell
 
 Thanks to [Eli Fitch](https://twitter.com/EliFitch/) for giving me the idea to call this Beedle. This matches my preference to call my little projects names based on Zelda. [Here's Beedle from Zelda](https://zelda.gamepedia.com/Beedle).
 
