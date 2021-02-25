@@ -1,5 +1,8 @@
 /**
- * Store status
+ * Store status.
+ *
+ * @export
+ * @type StoreStatus
  */
 export type StoreStatus = 'RESTING' | 'ACTION' | 'MUTATION'
 
@@ -10,14 +13,14 @@ export type StoreStatus = 'RESTING' | 'ACTION' | 'MUTATION'
  * @class Store
  */
 export class Store {
-  private _actions: Record<string, (...args: unknown[]) => unknown>
-  // public get actions(): Record<string, (...args: unknown[]) => unknown> {
-  //   return { ...this._actions }
-  // }
-  private _mutations: Record<string, (...args: unknown[]) => unknown>
-  // public get mutations(): Record<string, (...args: unknown[]) => unknown> {
-  //   return { ...this._mutations }
-  // }
+  private _actions: Record<string, (store: Store, payload: unknown) => unknown>
+  private _mutations: Record<
+    string,
+    (
+      state: Record<string, unknown>,
+      payload: unknown
+    ) => Record<string, unknown>
+  >
   private _state: Record<string, unknown>
 
   /**
@@ -32,6 +35,7 @@ export class Store {
   }
 
   private _status: StoreStatus
+
   /**
    * The status of this store.
    *
@@ -42,16 +46,17 @@ export class Store {
   public get status(): StoreStatus {
     return this._status
   }
-  private _callbacks: ((args: unknown[]) => unknown)[]
-  // public get callbacks(): ((args: unknown[]) => unknown)[] {
-  //   return [...this._callbacks]
-  // }
+
+  private _callbacks: Record<
+    string,
+    (state: Record<string, unknown>) => unknown
+  >
 
   /**
    * Creates an instance of Store.
    * @param {{
-   *     actions?: Record<string, (...args: unknown[]) => unknown>
-   *     mutations?: Record<string, (...args: unknown[]) => unknown>
+   *     actions?: Record<string, (store:Store, payload:unknown) => unknown>
+   *     mutations?: Record<string, (state:Record<string,unknown>, payload:unknown) => Record<string,unknown>>
    *     initialState?: Record<string, unknown>
    *   }} {
    *     actions,
@@ -65,8 +70,14 @@ export class Store {
     mutations,
     initialState,
   }: {
-    actions?: Record<string, (...args: unknown[]) => unknown>
-    mutations?: Record<string, (...args: unknown[]) => unknown>
+    actions?: Record<string, (store: Store, payload: unknown) => unknown>
+    mutations?: Record<
+      string,
+      (
+        state: Record<string, unknown>,
+        payload: unknown
+      ) => Record<string, unknown>
+    >
     initialState?: Record<string, unknown>
   }) {
     this._actions = actions ?? {}
@@ -76,7 +87,7 @@ export class Store {
     this._status = 'RESTING'
 
     // We store callbacks for when the state changes in here
-    this._callbacks = []
+    this._callbacks = {}
 
     // Set our state to be a Proxy. We are setting the default state by
     // checking the params and defaulting to an empty object if no default
@@ -139,7 +150,7 @@ export class Store {
     const newState = this._mutations[mutationKey](this._state, payload)
 
     // Update the old state with the new state returned from our mutation
-    this._state = Object.assign(this._state, newState)
+    this._state = { ...this._state, ...newState }
 
     return true
   }
@@ -148,10 +159,15 @@ export class Store {
    * Allow an outside entity to subscribe to state changes with a valid callback.
    * Returns boolean based on wether or not the callback was added to the collection
    *
-   * @param {function} callback
-   * @returns {boolean}
+   * @param {string} callbackKey a user's defined identifier for the callback.
+   * @param {(state: Record<string, unknown>) => unknown} callback the user's defined action to perform
+   * @returns {boolean} `true` if subscription has succeeded `false` otherwise
+   * @memberof Store
    */
-  subscribe(callback: (args: unknown[]) => unknown): boolean {
+  subscribe(
+    callbackKey: string,
+    callback: (state: Record<string, unknown>) => unknown
+  ): boolean {
     if (typeof callback !== 'function') {
       console.error(
         'You can only subscribe to Store changes with a valid function'
@@ -159,8 +175,31 @@ export class Store {
       return false
     }
 
+    if (this._callbacks[callbackKey] !== undefined) {
+      console.error(`There's already a callback registered for: ${callbackKey}`)
+      return false
+    }
+
     // A valid function, so it belongs in our collection
-    this._callbacks.push(callback)
+    this._callbacks[callbackKey] = callback
+
+    return true
+  }
+
+  /**
+   * Unsubscribe from state changes.
+   *
+   * @param {string} callbackKey a user's defined identifier for a registered callback
+   * @returns {boolean} `true` if unsubscription succeeded `false` otherwise
+   * @memberof Store
+   */
+  unsubscribe(callbackKey: string): boolean {
+    if (this._callbacks[callbackKey] === undefined) {
+      console.error(`There's no callback registered for: ${callbackKey}`)
+      return false
+    }
+
+    delete this._callbacks[callbackKey]
 
     return true
   }
@@ -168,19 +207,16 @@ export class Store {
   /**
    * Fire off each callback that's run whenever the state changes
    * We pass in some data as the one and only parameter.
-   * Returns a boolean depending if callbacks were found or not
    *
-   * @param {object} data
-   * @returns {boolean}
+   * @private
+   * @param {Record<string, unknown>} state
+   * @memberof Store
    */
-  private processCallbacks(...data: unknown[]): boolean {
-    if (!this._callbacks.length) {
-      return false
+  private processCallbacks(state: Record<string, unknown>): void {
+    for (const key in this._callbacks) {
+      if (Object.prototype.hasOwnProperty.call(this._callbacks, key)) {
+        this._callbacks[key](state)
+      }
     }
-
-    // We've got callbacks, so loop each one and fire it off
-    this._callbacks.forEach((callback) => callback(data))
-
-    return true
   }
 }

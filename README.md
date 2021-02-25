@@ -2,7 +2,7 @@
 
 Terii is a tiny library to help you manage state across your application. It was originally written by [Andy Bell](https://github.com/hankchizljaw) under another name: [Beedle](https://github.com/hankchizljaw/beedle).
 
-I have ported Andy's code to TypeScript. That's all folks.
+I have ported Andy's code to TypeScript (and added [`unsubscribe`](#listen-for-changes-and-stop-listening)). That's all folks.
 
 > Terii (japanese: テリー pron. Terī) is the japanese name of the character [Beedle](https://zelda.gamepedia.com/Beedle) from [The Legend of Zelda series](<https://zelda.gamepedia.com/The_Legend_of_Zelda_(Series)>). It might be better written as Terry, but it was not available on [npm](https://www.npmjs.com/), 😅
 
@@ -12,7 +12,7 @@ I have ported Andy's code to TypeScript. That's all folks.
   - [Install](#install)
   - [Create a `store` instance](#create-a-store-instance)
   - [Use in your app](#use-in-your-app)
-  - [Listen for changes](#listen-for-changes)
+  - [Listen for changes (and stop listening)](#listen-for-changes-and-stop-listening)
 - [How it works](#how-it-works)
 - [A mini library for small projects](#a-mini-library-for-small-projects)
 - [Performance budget](#performance-budget)
@@ -87,7 +87,7 @@ textElement.addEventListener('input', () => {
 })
 ```
 
-### Listen for changes
+### Listen for changes (and stop listening)
 
 Terii uses the Pub/Sub pattern to transmit changes. Let's attach the message to a DOM element:
 
@@ -96,9 +96,16 @@ Terii uses the Pub/Sub pattern to transmit changes. Let's attach the message to 
 const messageElement = document.querySelector('.js-message-element')
 
 // This fires every time the state updates
-storeInstance.subscribe((state) => {
+storeInstance.subscribe('.js-message-element', (state) => {
   messageElement.innerText = state.message
 })
+```
+
+If necessary, we can stop listening for changes by unsubscribing:
+
+```js
+// we stop listening to what we subscribed earlier
+storeInstance.unsubscribe('.js-message-element')
 ```
 
 ## How it works
