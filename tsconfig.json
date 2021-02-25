@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     // Target latest version of ECMAScript.
-    "target": "es2018",
-    "module": "ES2015",
+    "target": "ESNext",
+    "module": "ESNext",
     // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
     // Process & infer types from .js files.
