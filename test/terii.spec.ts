@@ -34,6 +34,33 @@ const storeInstance = new Store({
 const emptyStore = new Store({})
 
 describe('src/terii.js', () => {
+  it('Subscribe returns true if valid function passed in', () => {
+    expect(
+      storeInstance.subscribe('key', () => {
+        //.
+      })
+    ).toBeTruthy()
+  })
+
+  it('Subscribe returns false if trying to subscribe with same key', () => {
+    expect(
+      storeInstance.subscribe('key', () => {
+        //.
+      })
+    ).toBeFalsy()
+  })
+
+  it('Subscribe returns false if non-valid function passed in', () => {
+    expect(
+      storeInstance.subscribe(
+        'non-valid',
+        (null as unknown) as () => {
+          //.
+        }
+      )
+    ).toBeFalsy()
+  })
+
   it('Dispatch returns true if action was found', () => {
     expect(storeInstance.dispatch('runUpdate', updatedState)).toBeTruthy()
   })
@@ -48,27 +75,9 @@ describe('src/terii.js', () => {
     expect(storeInstance.commit('updateState', updatedState)).toBeTruthy()
   })
 
-  it("commit returns false if mutation wasn't found", () => {
+  it("Commit returns false if mutation wasn't found", () => {
     expect(
       storeInstance.commit('nonExistentMutation', updatedState)
-    ).toBeFalsy()
-  })
-
-  it('Subscribe returns true if valid function passed in', () => {
-    expect(
-      storeInstance.subscribe(() => {
-        //.
-      })
-    ).toBeTruthy()
-  })
-
-  it('Subscribe returns false if non-valid function passed in', () => {
-    expect(
-      storeInstance.subscribe(
-        (null as unknown) as () => {
-          //.
-        }
-      )
     ).toBeFalsy()
   })
 
@@ -90,5 +99,13 @@ describe('src/terii.js', () => {
 
   it('Commit returns false when there are no mutations', () => {
     expect(emptyStore.commit('nothing', {})).toBeFalsy()
+  })
+
+  it('Unsubscribe returns false if trying to unsubscribe non-existing key', () => {
+    expect(storeInstance.unsubscribe('no-key')).toBeFalsy()
+  })
+
+  it('Unsubscribe returns true if trying to unsubscribe existing key', () => {
+    expect(storeInstance.unsubscribe('key')).toBeTruthy()
   })
 })
