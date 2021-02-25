@@ -145,4 +145,5 @@ Check the [releases page](https://github.com/msanguineti/terii/releases) for the
 ## License
 
 Original work Copyright (c) 2018 Andy Bell - MIT License
+
 Modified work Copyright (c) 2021 Mirco Sanguineti - See [License](LICENSE)
