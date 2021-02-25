@@ -1,6 +1,10 @@
-# Terii <!-- omit in toc -->
+# ![Terii](terii_logo.png) <!-- omit in toc -->
 
-Terii is a tiny library to help you manage state across your application. It was originally written by [Andy Bell](https://github.com/hankchizljaw) under another name: [Beedle](https://github.com/hankchizljaw/beedle).
+[![npm](https://badgen.net/npm/v/terii)](https://www.npmjs.com/package/terii)
+[![minified+gzip](https://badgen.net/bundlephobia/minzip/terii)](https://bundlephobia.com/result?p=terii)
+[![deps](https://badgen.net/bundlephobia/dependency-count/terii)](https://bundlephobia.com/result?p=terii)
+
+`Terii` is a tiny library to help you manage state across your application. It was originally written by [Andy Bell](https://github.com/hankchizljaw) under another name: [Beedle](https://github.com/hankchizljaw/beedle).
 
 I have ported Andy's code to TypeScript (and added [`unsubscribe`](#listen-for-changes-and-stop-listening)). That's all folks.
 
@@ -24,7 +28,7 @@ I have ported Andy's code to TypeScript (and added [`unsubscribe`](#listen-for-c
 
 ## Getting started
 
-You can pull Terii down via [npm](http://npmjs.com) or take a [zip of this repository](https://github.com/msanguineti/terii/archive/master.zip). The rest of this guide assumes you've used npm.
+You can pull `Terii` down via [npm](http://npmjs.com) or take a [zip of this repository](https://github.com/msanguineti/terii/archive/master.zip). The rest of this guide assumes you've used npm.
 
 ### Install
 
@@ -89,7 +93,7 @@ textElement.addEventListener('input', () => {
 
 ### Listen for changes (and stop listening)
 
-Terii uses the Pub/Sub pattern to transmit changes. Let's attach the message to a DOM element:
+`Terii` uses the Pub/Sub pattern to transmit changes. Let's attach the message to a DOM element:
 
 ```js
 // Grab the text element and attach it to the stateChange event
@@ -110,25 +114,25 @@ storeInstance.unsubscribe('.js-message-element')
 
 ## How it works
 
-Terii creates a pattern where a single source of truth, the '_Application State_' cascades state across your app in a predictable fashion. To modify state, a set flow of `actions` and `mutations` help create a traceable data-flow that makes things a little easier to debug.
+`Terii` creates a pattern where a single source of truth, the '_Application State_' cascades state across your app in a predictable fashion. To modify state, a set flow of `actions` and `mutations` help create a traceable data-flow that makes things a little easier to debug.
 
 Using a [Pub/Sub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) which notifies anything that is subscribed to changes, a fully reactive front-end can be achieved with a few kilobytes of vanilla JavaScript.
 
 ## A mini library for small projects
 
-Terii is inspired by libraries like Redux, but certainly isn't designed to replace it. Terii is aimed more at tiny little applications or where a development team might be looking to create the smallest possible footprint with their JavaScript.
+`Terii` is inspired by libraries like Redux, but certainly isn't designed to replace it. `Terii` is aimed more at tiny little applications or where a development team might be looking to create the smallest possible footprint with their JavaScript.
 
 ## Performance budget
 
-Terii is intended to be _tiny_, so the largest that the uncompressed size will ever get to is 5kb.
+`Terii` is intended to be _tiny_, so the largest that the uncompressed size will ever get to is 5kb.
 
 ## Browser support
 
-Terii is aimed at browsers that support ES6 by default. It also uses a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to monitor state, so [anything that supports Proxy](https://caniuse.com/#feat=proxy) will support Terii.
+`Terii` is aimed at browsers that support ES6 by default. It also uses a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to monitor state, so [anything that supports Proxy](https://caniuse.com/#feat=proxy) will support `Terii`.
 
 You could use the [Proxy polyfill](https://github.com/GoogleChrome/proxy-polyfill) to support more browsers.
 
-Most major browsers will support Terii with no issues.
+Most major browsers will support `Terii` with no issues.
 
 ## TypeScript
 
