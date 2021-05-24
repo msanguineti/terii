@@ -54,7 +54,7 @@ describe('src/terii.js', () => {
     expect(
       storeInstance.subscribe(
         'non-valid',
-        (null as unknown) as () => {
+        null as unknown as () => {
           //.
         }
       )
