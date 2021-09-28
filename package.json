@@ -1,6 +1,6 @@
 {
   "name": "terii",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Terii is a tiny little library to help you manage state across your application. Terii creates a central store that enables you to both better control and cascade state across your application. The code and parts of the documentation have been taken from Andy Bells' Beedle and ported to TypeScript",
   "main": "dist/terii.umd.js",
   "module": "dist/terii.js",
