@@ -39,7 +39,7 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.57.0",
+    "rollup": "^2.64.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "ts-jest": "^27.1.3",
